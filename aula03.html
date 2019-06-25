@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 03 - Introdução JQuery</title>
+
+    <script src="js/jquery-3.4.1.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <script>
+        $(document).ready(function(){
+            $(".esconder").click(function(){
+                $(".t1, .t2, .t3").hide();
+            });
+
+            $(".ap").click(function(){
+                $(".t1, .t2, .t3").show(1000);
+            });
+
+            $(".aba1").click(function(){
+                $(".t1").hide();
+            });
+
+            $(".aba2").click(function(){
+                $(".t2").hide();
+            });
+
+            $(".aba3").click(function(){
+                $(".t3").hide();
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Introdução ao jQuery</h1>
+        <button class="btn btn-primary aba1">Aba 01</button>
+        <button class="btn btn-primary aba2">Aba 02</button>
+        <button class="btn btn-primary aba3">Aba 03</button>
+
+        <button class="btn btn-success esconder">Esconder todos</button>
+        <button class="btn btn-warning ap">Mostrar todos</button>
+
+        <br>
+
+        <div class="t1">
+            Camila Padilha
+        </div>
+
+        <div class="t2">
+            camila.padilha@edu.unipar.br
+        </div>
+
+        <div class="t3">
+            Aluna
+        </div>
+
+    </div>
+
+</body>
+</html>
