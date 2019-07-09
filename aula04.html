@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 04 - Formularios</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        //document = quando o documento estiver pronto executa a função
+        $(document).ready(function(){
+            $("#btn-enviar").click(function(){
+                $(this).text("Aguarde...");
+                // $(this).removeClass("btn-success");
+                // $(this).addClass("btn-primary");
+
+                var senha = $("input[name=senha]").val();
+                var senha2 = $("input[name=confirmar_senha]").val();
+
+                if(senha != senha2){
+                    alert("As senhas são dferentes");
+                    $("input[name=confirmar_senha]").focus();
+                    $("input[name=confirmar_senha]").addClass("border border-danger");
+                    $("input[name=senha]").addClass("border border-danger");
+                } else{
+                    $("input[name=confirmar_senha]").removeClass("border border-danger");
+                    $("input[name=senha]").removeClass("border border-danger");
+                }
+            }); //fim do enviar
+
+            $("#btn_mostrar").click(function(){
+                var valor = $(this).text();
+                if(valor == "Mostrar Senha"){
+                    $("input[name=senha]").attr("type", "text");
+                    $(this).text("Esconder");
+                } else{
+                    $("input[name=senha]").attr("type", "password");
+                    $(this).text("Mostrar Senha");
+                }
+                
+            }); // fim mostrar senha/esconder
+
+            $("input[name=senha]").dblclick(function(){
+                var tipo = $(this).attr("type");
+                if(tipo == "password") {
+                    $(this).attr("type", "text");
+                } else {
+                    $(this).attr("type", "password"); 
+                }
+            }) // fim dos dois click mostrar/esconder
+            
+
+
+            $("form").submit(function(event){
+                $(".obrigatorio").each(function(){
+                    if( $(this).val() == "" ){
+                        $(this).next("span").text("este campo é obrigatório.");
+
+                        //Para a submissão do código
+                        event.preventDefault();
+                    } else {
+                        $(this).next("span").text("");
+                    }
+                });
+            });
+
+        }); // fim do ready
+    </script>
+</head>
+<body>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <h3 class="border-bottom pb-2">jQuery com Formulários</h3>
+
+                <form action="" method="GET">
+                    
+                    <label for="">Nome: </label>
+                    <input type="text" name="nome" class="form-control obrigatorio">
+                    <span class="text-danger"></span>
+
+                    <br>
+
+                    <label for="">Email: </label>
+                    <input type="email" name="email" class="form-control obrigatorio">
+                    <span class="text-danger"></span>
+
+                    <br>
+
+                    <label for="">Data Nascimento: </label>
+                    <input type="date" name="nascimento" class="form-control obrigatorio">
+                    <span class="text-danger"></span>
+
+                    <br>
+
+                    <label for="">Senha: </label>
+                    <input type="password" name="senha" class="form-control obrigatorio">
+                    <span class="text-danger"></span>
+                    <button id="btn_mostrar" type="button" class="btn btn-small">Mostrar Senha</button>
+                    <br>
+
+                    <label for="">Confirmar Senha: </label>
+                    <input type="password" name="confirmar_senha" class="form-control obrigatorio">
+                    <span class="text-danger"></span>
+
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <button type="button" class="btn btn-success" id="btn-enviar">Verificar Senha</button>
+                    <button type="button" class="btn btn-secondary" id="btn-voltar">Voltar</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
