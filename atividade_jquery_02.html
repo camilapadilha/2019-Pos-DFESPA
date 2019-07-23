@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade jQuery - 01</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Atividade 02, 03 e 04 - jQuery</h3>
+                <form action="" method="GET">
+                    <label for="">Nome: </label>
+                    <input type="text" name="nome" class="form-control">
+                    <button type="button" class="btn btn-primary mensagem">Clique</button>
+
+                    <br><br>
+                    <textarea name="contagem" id="" cols="50" rows="5"></textarea>
+                    <div>
+                        <label for="">Quantidade</label>
+                        <p class="contador"></p>
+                    </div>
+
+                    <h3>Calculadora</h3>
+                    <label for="">Numero 1: </label>
+                    <input type="text" class="form-control num1">
+
+                    <label for="">Numero 2: </label>
+                    <input type="text" class="form-control num2">
+
+                    <label for="">Resultado: </label>
+                    <input type="text" disabled="true" class="form-control mb-3 resultado">
+
+                    <button type="button" class="btn btn-success" id="somar">Somar</button>
+                    <button type="button" class="btn btn-danger" id="subtrair">Subtrair</button>
+                    <button type="button" class="btn btn-primary" id="multiplicar">Multiplicar</button>
+                    <button type="button" class="btn btn-warning" id="dividir">Dividir</button>
+                    <br><br>
+                    <select name="" id="meu_select">
+                        <option value="">Escolha uma Opção</option>
+                        <option value="somar">Somar</option>
+                        <option value="subtrair">Subtrair</option>
+                        <option value="multiplicar">Multiplicar</option>
+                        <option value="dividir">Dividir</option>
+                    </select>
+                    <br><br>
+                    <input type="radio" name="calculo" value="somar">Somar
+                    <input type="radio" name="calculo" value="subtrair">Subtrair
+                    <input type="radio" name="calculo" value="multiplicar">Multiplicar
+                    <input type="radio" name="calculo" value="dividir">Dividir
+                    <br><br>
+                    <input type="checkbox">
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".mensagem").click(function () {
+                var valor = $("input[name=nome]").val();
+                if (valor != "") {
+                    alert("Seja Bem Vindo(a) " + valor);
+                }
+            })//fim mensagem boas vindas
+
+            $("textarea[name=contagem]").keyup(function () {
+                var valor = $(this).val();
+                var n = valor.length;
+                $(".contador").text(n);
+
+            });//fim contador
+
+            function calculadora(op) {
+                var num1 = parseFloat($(".num1").val());
+                var num2 = parseFloat($(".num2").val());
+                var resul = 0;
+
+                if (op == "somar") {
+                    resul = num1 + num2;
+                    $(".resultado").val(resul);
+                }
+                if (op == "subtrair") {
+                    resul = num1 - num2;
+                    $(".resultado").val(resul);
+
+                }
+                if (op == "dividir") {
+                    resul = num1 / num2;
+                    $(".resultado").val(resul);
+                }
+                if (op == "multiplicar") {
+                    resul = num1 * num2;
+                    $(".resultado").val(resul);
+                }
+            } //fim função calculadora
+
+            $("button").click(function () {
+                var valor = $(this).attr("id");
+                calculadora(valor);
+
+            }); //fim botão das op
+
+            $("select#meu_select").change(function () {
+                var valor = $(this).val();
+                calculadora(valor);
+
+            }); //fim select das op
+            $("input[type=radio]").change(function () {
+                var valor = $(this).val();
+                calculadora(valor);
+
+            }); //fim select das op
+            $("input[type=checkbox]").change(function () {
+                var valor = $(this).prop("checked");
+                var campoResult = $(".resultado").val();
+
+                if (campoResult != '') {
+                    if (valor == true) {
+                        $(".resultado").val(campoResult * 2);
+                    } else {
+                        $(".resultado").val(campoResult / 2);
+                    }
+                }
+
+            }); //fim checkbox
+
+
+
+        });//fim ler documento
+    </script>
+</body>
+
+</html>

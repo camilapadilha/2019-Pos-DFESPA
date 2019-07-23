@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade jQuery - 01</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <script src="js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Atividade 01 - jQuery</h3>
+                <form action="" method="GET">
+                    <p id="paragrafo1">Paragrafo 01</p>
+                    <p id="paragrafo2">Paragrafo 02</p>
+                    <p id="paragrafo3">Paragrafo 03</p>
+
+                    <button type="button" class="btn btn-primary esconder">Esconder/Mostrar</button>
+                    <button type="button" class="btn btn-primary mudar">Mudar cor</button>
+                    <button type="button" class="btn btn-primary alterar_props">Alterar Propriedades</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".esconder").click(function () {
+                $("p").toggle();
+            }); //fim botão mostrar/esconder
+
+            $("p").click(function () {
+                var test = $(this).attr("id");
+                if (test == "paragrafo1") {
+                    $("#paragrafo1").hide();
+                }
+                if (test == "paragrafo2") {
+                    $("#paragrafo2").hide();
+                }
+                if (test == "paragrafo3") {
+                    $("#paragrafo3").hide();
+                }
+            }); //fim esconder paragrafos
+
+            $(".mudar").click(function () {
+                $("p:first").addClass("text-success");
+            }); //fim adicionar class text-success
+
+            $(".alterar_props").click(function () {
+                $("p").addClass("text-primary");
+                $("p").addClass("font-weight-bold");
+            }); //fim mudar propriedades css
+        });//fim ler documento
+    </script>
+</body>
+
+</html>
