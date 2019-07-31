@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade 09</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row pt-5 pl-5">
+            <div class="col">
+                <h3>Atividade 09 - jQuery</h3>
+
+                <div>
+                    <i class="fa fa-angle-left icone fa-4x" id="icon_left" aria-hidden="true"></i>
+                    <div id="div1">
+                        <img src="img/img01.jpg" alt="">
+                    </div>
+                    <div id="div2">
+                        <img src="img/img02.jpg" alt="">
+                    </div>
+                    <div id="div3">
+                        <img src="img/img03.jpg" alt="">
+                    </div>
+                    <div id="div4">
+                        <img src="img/img04.jpg" alt="">
+                    </div>
+                    <i class="fa fa-angle-right icone fa-4x" id="icon_right" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#icon_right").click(function(){
+                console.log(arrayImg);
+            });
+        }); //fim document
+    </script>
+    <style>
+        img {
+            width: 600px;
+            height: 200px;
+        }
+
+        /* .icone {
+            font-size: 60px;
+        } */
+    </style>
+</body>
+
+</html>

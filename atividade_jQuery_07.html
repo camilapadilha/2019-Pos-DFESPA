@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade 07 - jQuery</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <h3 class="pb-5">Atividade 07 - jQuery</h3>
+                <textarea cols="40" rows="5"></textarea>
+                <br><br>
+                <button type="button" class="btn btn-primary add">Adicionar</button>
+                <button type="button" class="btn limpar">Limpar</button>
+
+                <ul></ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".add").click(function () {
+                var str = $("textarea").val();
+                var test = str.split(";");
+                for(i=0; i<test.length; i++){
+                    $("ul").append("<li>"+test[i]+"</li>");
+                }
+            }); // fim botão add
+
+            $(".limpar").click(function(){
+                $("ul").empty();
+            }); //fim botão limpar
+        });
+    </script>
+</body>
+
+</html>

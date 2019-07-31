@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade Lampada</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row pt-5 pl-5">
+            <div class="col">
+                <img src="img/lamp_apagada.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("img").mouseenter(function () {
+                var valor = $(this).attr("src");
+                if (valor != "img/lamp_quebrada.jpg") {
+                    $(this).attr("src", "img/lamp_acessa.jpg");
+                }
+            });
+            $("img").mouseleave(function () {
+                var valor = $(this).attr("src");
+                if (valor != "img/lamp_quebrada.jpg") {
+                    $(this).attr("src", "img/lamp_apagada.jpg");
+                }
+            });
+            $("img").click(function () {
+                $(this).attr("src", "img/lamp_quebrada.jpg");
+            });
+        });//fim ler documento
+    </script>
+</body>
+
+</html>

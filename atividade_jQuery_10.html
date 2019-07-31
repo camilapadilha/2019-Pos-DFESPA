@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Atividade 10</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row pt-5 pl-5">
+            <div class="col">
+                <h3>Atividade 10 - jQuery</h3>
+                <input type="text" id="myInput">
+                <button type="button" id="myButton" class="btn btn-primary">filtrar</button>
+                <button type="button" id="voltar" class="btn">Voltar</button>
+                <br><br>
+                <table style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody id="filtrar">
+                        <tr>
+                            <td>Camz</td>
+                            <td>1111111111</td>
+                            <td>camz@email</td>
+                        </tr>
+                        <tr>
+                            <td>Ash</td>
+                            <td>22222222222</td>
+                            <td>ash@email</td>
+                        </tr>
+                        <tr>
+                            <td>Matheus</td>
+                            <td>33333333333</td>
+                            <td>matheus@email</td>
+                        </tr>
+                        <tr>
+                            <td>Julie</td>
+                            <td>4444444444</td>
+                            <td>julie@email</td>
+                        </tr>
+                        <tr>
+                            <td>Alice</td>
+                            <td>5555555555</td>
+                            <td>alice@email</td>
+                        </tr>
+                        <tr>
+                            <td>Marley</td>
+                            <td>666666666666</td>
+                            <td>marley@email</td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#myButton").click(function(){
+                var valor = $("#myInput").val().toLowerCase();
+                $("#filtrar tr").filter(function(){
+                    $(this).toggle($(this).text().toLowerCase().indexOf(valor) > -1);
+                });
+            });
+            $("#voltar").click(function(){
+                $("#filtrar tr").filter(function(){
+                    $(this).show();
+                });
+            });
+        }); //fim document
+    </script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</body>
+
+</html>
