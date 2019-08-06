@@ -35,17 +35,9 @@
                 $("p").toggle();
             }); //fim botão mostrar/esconder
 
-            $("p").click(function () {
-                var test = $(this).attr("id");
-                if (test == "paragrafo1") {
-                    $("#paragrafo1").hide();
-                }
-                if (test == "paragrafo2") {
-                    $("#paragrafo2").hide();
-                }
-                if (test == "paragrafo3") {
-                    $("#paragrafo3").hide();
-                }
+            $("p").click(function () {   
+                    $(this).hide();
+                              
             }); //fim esconder paragrafos
 
             $(".mudar").click(function () {
@@ -53,8 +45,8 @@
             }); //fim adicionar class text-success
 
             $(".alterar_props").click(function () {
-                $("p").addClass("text-primary");
-                $("p").addClass("font-weight-bold");
+                $("p").css('color', '#ADBA98');
+                $("p").css('font-weight', 'bold');
             }); //fim mudar propriedades css
         });//fim ler documento
     </script>
