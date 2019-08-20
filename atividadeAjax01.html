@@ -12,20 +12,31 @@
 
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/bootstrap.js"></script>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
     <script>
         $(document).ready(function () {
-            $("#cep").blur(function () {
-                var cep = $(this).val();
+            $("#add").click(function () {
+                var cep = $("#cep").val();
                 var url = "https://viacep.com.br/ws/" + cep + "/json/?callback=?";
 
                 var dados = "";
 
 
-                $.getJSON(url, dados, function (resp, status) {
-                    $("#nome").val(resp.nome);
-                    $("#logradouro").val(resp.logradouro);
-                    $("#bairro").val(resp.bairro);
-                    $("#cidade").val(resp.localidade);
+                $.getJSON(url, dados, function (resp, status) {   
+                    $.each(resp, function (indice, item) { 
+                        $("tbody").append("<tr>");
+                        $("tbody").append("</tr>");
+                    });
+                    // $("#Tabcep").val(resp.cep);
+                    // $("#logradouro").val(resp.logradouro);
+                    // $("#cidade").val(resp.localidade);
+                    // $("#estado").val(resp.);
 
                 });
 
@@ -52,30 +63,31 @@
             <div class="col-md-8 mx-auto px-4">
 
                 <form action="">
-
-                    <div>
-                        <label for="">Nome:</label>
-                        <input type="text" id="nome" class="form-control">
-                    </div>
                     <div>
                         <label for="">CEP:</label>
                         <input type="text" id="cep" class="form-control">
                     </div>
                     <div>
-                        <label for="">Logradouro:</label>
-                        <input type="text" id="logradouro" class="form-control">
+                        <button class="btn btn-primary" id="add">Adicionar</button>
                     </div>
+                    <br>
                     <div>
-                        <label for="">Bairro:</label>
-                        <input type="text" id="bairro" class="form-control">
-                    </div>
-                    <div>
-                        <label for="">Cidade:</label>
-                        <input type="text" id="cidade" class="form-control">
-                    </div>
+                        <table style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>CEP</th>
+                                    <th>Logradouro</th>
+                                    <th>Cidade</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
+                            </tbody>
+
+                        </table>
+                    </div>
                 </form>
-
             </div>
         </div>
     </div>
