@@ -21,22 +21,22 @@
     </style>
     <script>
         $(document).ready(function () {
-            $("#add").click(function () {
-                var cep = $("#cep").val();
-                var url = "https://viacep.com.br/ws/" + cep + "/json/?callback=?";
+            $("#est").change(function () {
+                var estado = $(this).val();
+                var url = "http://localhost/2019-Pos-Front-End/cidades.php?nome=" + estado;
 
                 var dados = "";
-                var lista = ["cep", "logradouro", "localidade", "uf"];
-
+                $("tbody").empty();
                 $.getJSON(url, dados, function (resp, status) {
-                    lista = [resp.cep, resp.logradouro, resp.localidade, resp.uf];
-                    
-                    $("tbody").append("<tr>");
-                    $.each(lista, function (indice, item) {
-                        $("tbody").append("<th>" + item + "</th>");
+                    $.each(resp.cidades, function (indice, item) {
+                        $("tbody").append(
+                            "<tr>"
+                            + "<th>" + item.id + "</th>"
+                            + "<th>" + item.nome + "</th>"
+                            + "</tr>"
+                        );
+                        //console.log();
                     });
-                    $("tbody").append("</tr>");
-                    $("#cep").val("");
                 });
             });
         });
@@ -50,7 +50,7 @@
             <div class="col-md-8 mx-auto p-4">
 
                 <h3 class="border-bottom border-dark">
-                    Consulta de cep com Ajax e jQuery
+                    Consulta de Cidades com Ajax e jQuery
                 </h3>
 
             </div>
@@ -60,26 +60,23 @@
 
                 <form action="">
                     <div>
-                        <label for="">CEP:</label>
-                        <input type="text" id="cep" class="form-control">
-                    </div>
-                    <br>
-                    <div>
-                        <button type="button" class="btn btn-primary" id="add">Adicionar</button>
-                    </div>
-                    <br>
-                    <div>
+                        <h3>Escolha um estado</h3>
+                        <select name="estados" id="est">
+                            <option value="">Escolha uma opção</option>
+                            <option value="PR">Paraná</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                        </select>
+                        <br><br>
+                        <h3>Tabela de Cidades</h3>
                         <table style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th>CEP</th>
-                                    <th>Logradouro</th>
+                                    <th>Id</th>
                                     <th>Cidade</th>
-                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
-
                         </table>
                     </div>
                 </form>

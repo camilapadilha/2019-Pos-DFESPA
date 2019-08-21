@@ -21,23 +21,29 @@
     </style>
     <script>
         $(document).ready(function () {
-            $("#add").click(function () {
-                var cep = $("#cep").val();
-                var url = "https://viacep.com.br/ws/" + cep + "/json/?callback=?";
+            $(document).keydown(function (e) {
+                if (e.which == '121') {
+                    var cep = $("#cep").val();
+                    var url = "https://viacep.com.br/ws/" + cep + "/json/?callback=?";
 
-                var dados = "";
-                var lista = ["cep", "logradouro", "localidade", "uf"];
+                    var dados = "";
+                    var lista = ["cep", "logradouro", "localidade", "uf"];
 
-                $.getJSON(url, dados, function (resp, status) {
-                    lista = [resp.cep, resp.logradouro, resp.localidade, resp.uf];
-                    
-                    $("tbody").append("<tr>");
-                    $.each(lista, function (indice, item) {
-                        $("tbody").append("<th>" + item + "</th>");
+                    $.getJSON(url, dados, function (resp, status) {
+                        //$.each(lista, function (indice, item) {
+                        $("tbody").append(
+                            "<tr>"
+                            + "<th>" + resp.cep + "</th>"
+                            + "<th>" + resp.logradouro + "</th>"
+                            + "<th>" + resp.localidade + "</th>"
+                            + "<th>" + resp.uf + "</th>"
+                            + "</tr>"
+                        );
+                        //console.log();
+                        //});
                     });
-                    $("tbody").append("</tr>");
-                    $("#cep").val("");
-                });
+
+                }
             });
         });
     </script>
@@ -63,7 +69,6 @@
                         <label for="">CEP:</label>
                         <input type="text" id="cep" class="form-control">
                     </div>
-                    <br>
                     <div>
                         <button type="button" class="btn btn-primary" id="add">Adicionar</button>
                     </div>
