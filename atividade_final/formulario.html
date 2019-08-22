@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Currículo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-8 mx-auto px-4">
+                <h3 class="border-bottom border-dark">Cadastro de Curriculo</h3>
+                <form>
+                    <div>
+                        <button type="button" class="btn btn-primary">Dados pessoais</button>
+                        <button type="button" class="btn">Dados formação Acadêmica</button>
+                        <button type="button" class="btn">Dados profissionais</button>
+                    </div>
+                    <div id="dadosPessoas">
+                        <h3>Dados Pessoais</h3>
+                        <label for="">Nome:</label>
+                        <input type="text" class="form-control">
+                        <label for="">CPF:</label>
+                        <input type="text" class="form-control">
+                        <label for="">RG:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Cep:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Endereço:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Bairro:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Cidade:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div id="dadosFormacao">
+                        <h3>Dados da Formação</h3>
+                        <label for="">Curso Superior:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Especialização:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Local:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Data Conclusão:</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div id="dadosProf">
+                        <h3>Dados profissionais</h3>
+                        <label for="">Data Entrada:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Saída:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Função:</label>
+                        <input type="text" class="form-control">
+                        <label for="">Empresa:</label>
+                        <input type="text" class="form-control">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            
+        });
+    </script>
+</body>
+</html>
