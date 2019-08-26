@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,66 +12,222 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-md-8 mx-auto px-4">
-                <h3 class="border-bottom border-dark">Cadastro de Curriculo</h3>
-                <form>
-                    <div>
-                        <button type="button" class="btn btn-primary">Dados pessoais</button>
-                        <button type="button" class="btn">Dados formação Acadêmica</button>
-                        <button type="button" class="btn">Dados profissionais</button>
-                    </div>
-                    <div id="dadosPessoas">
-                        <h3>Dados Pessoais</h3>
-                        <label for="">Nome:</label>
-                        <input type="text" class="form-control">
-                        <label for="">CPF:</label>
-                        <input type="text" class="form-control">
-                        <label for="">RG:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Cep:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Endereço:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Bairro:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Cidade:</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div id="dadosFormacao">
-                        <h3>Dados da Formação</h3>
-                        <label for="">Curso Superior:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Especialização:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Local:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Data Conclusão:</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div id="dadosProf">
-                        <h3>Dados profissionais</h3>
-                        <label for="">Data Entrada:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Saída:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Função:</label>
-                        <input type="text" class="form-control">
-                        <label for="">Empresa:</label>
-                        <input type="text" class="form-control">
 
+<body>
+    <div class="container-fluid py-5">
+        <div class="row">
+            <div class="col-md"></div>
+
+            <div class="col-md-5 mx-auto px-4 mt-5">
+                <h3 class="border-bottom border-dark mb-5">Cadastro de Currículo</h3>
+                <form>
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-dPessoais-tab" data-toggle="tab"
+                                href="#nav-dPessoais" role="tab" aria-controls="nav-dPessoais"
+                                aria-selected="true">Dados Pessoais</a>
+
+                            <a class="nav-item nav-link" id="nav-dFormacao-tab" data-toggle="tab" href="#nav-dFormacao"
+                                role="tab" aria-controls="nav-dFormacao" aria-selected="false">Dados de Formação
+                                Acadêmica</a>
+
+                            <a class="nav-item nav-link" id="nav-dProfissionais-tab" data-toggle="tab"
+                                href="#nav-dProfissionais" role="tab" aria-controls="nav-dProfissionais"
+                                aria-selected="false">Dados Profissionais</a>
+
+                            <a class="nav-item nav-link" id="nav-dfinalizar-tab" data-toggle="tab"
+                                href="#nav-dfinalizar" role="tab" aria-controls="nav-dfinalizar"
+                                aria-selected="false">Finalizar</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content mt-3" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-dPessoais" role="tabpanel"
+                            aria-labelledby="nav-dPessoais-tab">
+                            <div id="dadosPessoas">
+                                <h3>Dados Pessoais</h3>
+
+                                <label for="nome">Nome</label>
+                                <input id="nome" type="text" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="cpf">CPF</label>
+                                <input id="cpf" type="text" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="">RG</label>
+                                <input type="text" class="form-control">
+
+                                <br>
+
+                                <label for="">Cep</label>
+                                <input id="cep" type="text" class="form-control">
+
+                                <br>
+
+                                <label for="">Endereço</label>
+                                <input id="end" type="text" class="form-control">
+
+                                <br>
+
+                                <label for="">Bairro</label>
+                                <input id="bairro" type="text" class="form-control">
+
+                                <br>
+
+                                <label for="">Cidade</label>
+                                <input id="cid" type="text" class="form-control">
+                                
+                                <br>
+
+                                <label for="">Estado</label>
+                                <input id="est" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-dFormacao" role="tabpanel"
+                            aria-labelledby="nav-dFormacao-tab">
+                            <div id="dadosFormacao">
+                                <h3>Dados de Formação Acadêmica</h3>
+
+                                <label for="cursoS">Curso Superior</label>
+                                <input id="cursoS" type="text" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="">Especialização</label>
+                                <input type="text" class="form-control">
+
+                                <br>
+
+                                <label for="local">Local</label>
+                                <input id="local" type="text" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="">Data Conclusão</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-dProfissionais" role="tabpanel"
+                            aria-labelledby="nav-dProfissionais-tab">
+                            <div id="dadosProf">
+                                <h3>Dados profissionais</h3>
+
+                                <label for="saida">Data Entrada</label>
+                                <input id="saida" type="text" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="">Saída</label>
+                                <input type="text" class="form-control">
+
+                                <br>
+
+                                <label for="funcao">Função</label>
+                                <input id="funcao" type="text" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="">Empresa</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-dfinalizar" role="tabpanel"
+                            aria-labelledby="nav-dfinalizar-tab">
+                            <div id="dadosFinalizar">
+                                <h3>Finalizar</h3>
+
+                                <label for="email">Email</label>
+                                <input id="email" type="email" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="senha">Senha</label>
+                                <input id="senha" type="password" class="form-control obrigatorio">
+                                <span class="text-danger"></span>
+
+                                <br>
+
+                                <label for="confirmSenha">Confirmar senha</label>
+                                <input id="confirmSenha" type="password" class="form-control obrigatorio">
+                                <span id="spanSenha" class="text-danger"></span>
+                                <br>
+
+                                <button type="submit" id="btn-salvar" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
                     </div>
                 </form>
+            </div>
+            <div class="col-md">
+                <div class="row">
+                    <div id="alertas"></div>
+                </div>
             </div>
         </div>
 
     </div>
     <script>
-        $(document).ready(function(){
-            
-        });
+        $(document).ready(function () {
+            $('#myTab a').on('click', function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            });//fim nav
+            $("#cep").blur(function () {
+                var cep = $(this).val();
+                var url = "https://viacep.com.br/ws/" + cep + "/json/?callback=?";
+                var dados = "";
+
+                $.getJSON(url, dados,
+                    function (resp, status) {
+                        $("#end").val(resp.logradouro);
+                        $("#bairro").val(resp.bairro);
+                        $("#cid").val(resp.localidade);
+                        $("#est").val(resp.uf);
+                    }
+                );
+            });//fim preencher campos de acordo com o cep
+            $("#confirmSenha").keyup(function () {
+                var senha = $("#senha").val();
+                var confirmSenha = $("#confirmSenha").val();
+                if (senha != confirmSenha) {
+                    $("#spanSenha").text("senhas diferentes");
+                    $("#confirmSenha").addClass("border border-danger");
+                    $("#spanSenha").addClass("text-danger");
+                }
+                else {
+                    $("#spanSenha").text("senhas iguais");
+                    $("#spanSenha").attr("class", "");
+                    $("#spanSenha").attr("class", "text-success");
+                    $("#confirmSenha").removeClass("border border-danger");
+
+                }
+            });//fim valida senha
+            $("form").submit(function (e) {
+                $(".obrigatorio").each(function () {
+                    if ($(this).val() == "") {
+                        var idCampo = $(this).attr("id");
+                        var nomeCampo = $("label[for=" + idCampo + "]").text();
+                        $("#alertas").append(
+                            "<div class='alert alert-danger' role='alert'>" +
+                            "O campo " + nomeCampo + " é obrigatório!" +
+                            "</div>");
+                        $(this).next("span").text("O campo " + nomeCampo + " é obrigatório!");
+                        $(this).addClass("border border-danger");
+                        e.preventDefault();
+                    }
+                });
+            });//fim valida campos obrigatórios
+        });//fim documento
     </script>
 </body>
+
 </html>

@@ -26,7 +26,6 @@
                 var url = "https://viacep.com.br/ws/" + cep + "/json/?callback=?";
 
                 var dados = "";
-                var lista = ["cep", "logradouro", "localidade", "uf"];
 
                 $.getJSON(url, dados, function (resp, status) {
                     lista = [resp.cep, resp.logradouro, resp.localidade, resp.uf];
